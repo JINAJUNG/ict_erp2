@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +22,9 @@ public class DepartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String uri = request.getRequestURI();
+		String rPath = request.getContextPath();
 		String cmd = ICTUtils.getCmd(uri);
-
+		uri= "/views"+uri.replace(rPath, "")+".jsp";
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 
@@ -36,28 +38,11 @@ public class DepartServlet extends HttpServlet {
 		try {
 			if (cmd.equals("list")) {
 				List<DepartInfo> diList = ds.getDepartList();
-				StringBuilder sb = new StringBuilder();
-				sb.append("<table border='1'>\r\n");
-				sb.append("<thead>");
-				sb.append("<tr>");
-				sb.append("<th>diNo</th>");
-				sb.append("<th>diName</th>");
-				sb.append("<th>diDesc</th>");
-				sb.append("<th>diCnt</th>");
-				sb.append("</tr>");
-				sb.append("</thead>");
-				sb.append("<tbody>");
-				for (DepartInfo di : diList) {
-					sb.append("<tr>");
-					sb.append("<td>"+di.getDiNO() + "</td>");
-					sb.append("<td>"+di.getDiName() + "</td>");
-					sb.append("<td>"+di.getDiDesc() + "</td>");
-					sb.append("<td>"+di.getDiCnt() + "</td>");
-					sb.append("</tr>");
-				}
-				sb.append("</tbody>");
-				sb.append("</table>"); //String담아서
-				pw.print(sb);//한번에 빌드
+				request.setAttribute("diList", diList);
+				RequestDispatcher rd = request.getRequestDispatcher(uri);
+				rd.forward(request, response);
+				return;
+				
 			} else if (cmd.equals("view")) {
 
 			} else {
@@ -66,7 +51,6 @@ public class DepartServlet extends HttpServlet {
 			}
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 

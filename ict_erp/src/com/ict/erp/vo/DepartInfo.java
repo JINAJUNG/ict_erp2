@@ -2,7 +2,7 @@ package com.ict.erp.vo;
 
 public class DepartInfo {
 	//map대신dto구조 사용 이유 : 없는 값이 들어오면 에러가 뜬다 (맵은 에러 안뜸 null),컬럼이 많아질 수록 속도가 좀더 빠름
-	private int diNO;
+	private int diNo;
 	private String diName;
 	private String diDesc;
 	private int diCnt;
@@ -10,18 +10,18 @@ public class DepartInfo {
 	public DepartInfo() {
 		
 	}
-	public DepartInfo(int diNO, String diName, String diDesc, int diCnt) {
-		this.diNO = diNO;
+	public DepartInfo(int diNo, String diName, String diDesc, int diCnt) {
+		this.diNo = diNo;
 		this.diName = diName;
 		this.diDesc = diDesc;
 		this.diCnt = diCnt;
 	}
 	
-	public int getDiNO() {
-		return diNO;
+	public int getDiNo() {
+		return diNo;
 	}
-	public void setDiNO(int diNO) {
-		this.diNO = diNO;
+	public void setDiNo(int diNo) {
+		this.diNo = diNo;
 	}
 	public String getDiName() {
 		return diName;
@@ -44,7 +44,7 @@ public class DepartInfo {
 	
 	@Override
 	public String toString() {
-		return "DepartInfo [diNO=" + diNO + ", diName=" + diName + ", diDesc=" + diDesc + ", diCnt=" + diCnt + "]";
+		return "DepartInfo [diNo=" + diNo + ", diName=" + diName + ", diDesc=" + diDesc + ", diCnt=" + diCnt + "]";
 	}
 
 }

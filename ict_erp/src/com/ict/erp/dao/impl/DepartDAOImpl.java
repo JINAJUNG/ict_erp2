@@ -31,7 +31,7 @@ public class DepartDAOImpl implements DepartDAO {
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
 			DepartInfo di = new DepartInfo();
-			di.setDiNO(rs.getInt("diNo"));
+			di.setDiNo(rs.getInt("diNo"));
 			di.setDiName(rs.getString("diName"));
 			di.setDiDesc(rs.getString("diDesc"));
 			di.setDiCnt(rs.getInt("diCnt"));
