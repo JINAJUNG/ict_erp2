@@ -4,7 +4,7 @@
   <welcome-file-list>
     <welcome-file>/views/index.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+<!--   <servlet>
     <servlet-name>TestSer</servlet-name>
     <servlet-class>com.ict.erp.controller.TestServlet</servlet-class>
   </servlet>
@@ -12,7 +12,7 @@
     <servlet-name>TestSer</servlet-name>
     <url-pattern>/test/*</url-pattern>
   </servlet-mapping>
-  <servlet>
+ -->  <servlet>
     <servlet-name>DepartServlet</servlet-name>
     <servlet-class>com.ict.erp.controller.DepartServlet</servlet-class>
   </servlet>

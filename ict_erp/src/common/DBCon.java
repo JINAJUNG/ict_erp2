@@ -40,6 +40,7 @@ public class DBCon {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, user, pwd);
+			con.setAutoCommit(false);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
