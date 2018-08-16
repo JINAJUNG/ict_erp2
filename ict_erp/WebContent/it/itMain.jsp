@@ -9,7 +9,7 @@
 	<div class="container">
 		<table class="table table-striped">
 			<tr>
-				<th><input type="checkbox"></th>
+				<th><input type="checkbox" onclick="allClick(this)"></th>
 				<th>번호</th>
 				<th>내용</th>
 				<th>비번</th>
@@ -52,6 +52,14 @@
 		<button type="button" onclick="goDe(this)">Go Delete</button>
 	</div>
 	<script type="text/javascript">
+		function allClick(obj){
+			console.log(obj.checked);
+			var cl = document.querySelectorAll('input[name="deV"]');
+			for(var i=0;i<cl.length;i++){
+				cl[i].checked = obj.checked;
+			}
+		}
+	
 		function goIn(){
 			location.href='<%=rPath%>it/itIn.jsp';
 		}
