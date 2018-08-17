@@ -9,7 +9,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/views/common/common.jsp"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <%
 	request.setCharacterEncoding("utf-8");
 	String id = request.getParameter("id");

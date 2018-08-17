@@ -4,7 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/views/common/common.jsp"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <%
 	String no = request.getParameter("no");
 	String text = request.getParameter("text");
@@ -16,7 +16,6 @@
 	ps.setString(1, no);
 	ps.setString(2, text);
 	ps.setString(3, pwd);
-
 	int cnt = ps.executeUpdate();
 	ps.close();
 	con.commit();

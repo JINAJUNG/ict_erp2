@@ -4,7 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/views/common/common.jsp"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <body>
 	<div class="container">
 		<table class="table table-striped">
@@ -20,13 +20,11 @@
 				PreparedStatement ps = con.prepareStatement(sql);
 				ResultSet rs = ps.executeQuery();
 				int a = 0;
-
 				while (rs.next()) {
 					a++;
 			%>
 			<tr>
-				<td><input type="checkbox" name="deV"
-					value="<%=rs.getString("itNo")%>"></td>
+				<td><a href="<%=rPath%>it/itView.jsp?itNo=<%=rs.getInt("itNo")%>"><%=rs.getInt("itNo")%></a></td>
 				<td><%=rs.getString("itNo")%></td>
 				<td><%=rs.getString("itText")%></td>
 				<td><%=rs.getString("itPwd")%></td>
